@@ -1,0 +1,9 @@
+{
+  "variables": {
+    "prefix": "var",
+    "body": [
+      "local ${1: name} = ${2: value}",
+      "${0}"
+    ]
+  }
+}
