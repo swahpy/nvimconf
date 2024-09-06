@@ -93,9 +93,9 @@ local handlers = {
 						autoImportCompletions = true,
 					},
 				},
-        python = {
-          pythonPath = vim.fn.exepath("python")
-        }
+        -- python = {
+        --   pythonPath = vim.fn.exepath("python")
+        -- }
 			},
 		})
 	end,
