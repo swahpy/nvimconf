@@ -754,10 +754,10 @@ later(function()
 	nmap_leader("l", function()
 		trail.trim_last_lines()
 	end, "+trim trailing last lines")
-  -- ╔═══════════════════════╗
-  -- ║    mini.trailspace    ║
-  -- ╚═══════════════════════╝
-  require('mini.visits').setup()
+	-- ╔═══════════════════════╗
+	-- ║    mini.trailspace    ║
+	-- ╚═══════════════════════╝
+	require("mini.visits").setup()
 	-- ╔═══════════════════════╗
 	-- ║    non-mini-plugins   ║
 	-- ╚═══════════════════════╝
@@ -940,13 +940,13 @@ later(function()
 	--------------
 	-- undotree --
 	--------------
-  add("mbbill/undotree")
-  nmap_leader("tu", "<cmd>UndotreeToggle<cr>", "+toggle undo tree")
-  vim.g.undotree_WindowLayout = 2
-  vim.g.undotree_DiffAutoOpen = 0
-  vim.g.undotree_SplitWidth = 35
-  vim.g.undotree_ShortIndicators = 1
-  vim.g.undotree_SetFocusWhenToggle = 1
+	add("mbbill/undotree")
+	nmap_leader("tu", "<cmd>UndotreeToggle<cr>", "+toggle undo tree")
+	vim.g.undotree_WindowLayout = 2
+	vim.g.undotree_DiffAutoOpen = 0
+	vim.g.undotree_SplitWidth = 35
+	vim.g.undotree_ShortIndicators = 1
+	vim.g.undotree_SetFocusWhenToggle = 1
 end)
 
 -- ╔══════════════════════════════════╗
