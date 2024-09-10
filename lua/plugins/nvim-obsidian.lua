@@ -149,21 +149,22 @@ obs.setup({
 	-- Optional, configure additional syntax highlighting / extmarks.
 	-- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
 	ui = {
+		enable = false,
 		-- Define how various check-boxes are displayed
-		checkboxes = {
-			[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-			["x"] = { char = "", hl_group = "ObsidianDone" },
-		},
+		-- checkboxes = {
+		-- 	[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+		-- 	["x"] = { char = "", hl_group = "ObsidianDone" },
+		-- },
 	},
 
-  -- Optional, for templates (see below).
-  templates = {
-    folder = "templates",
-    date_format = "%Y-%m-%d",
-    time_format = "%H:%M",
-    -- A map for custom variables, the key should be the variable and the value a function
-    substitutions = {},
-  },
+	-- Optional, for templates (see below).
+	templates = {
+		folder = "templates",
+		date_format = "%Y-%m-%d",
+		time_format = "%H:%M",
+		-- A map for custom variables, the key should be the variable and the value a function
+		substitutions = {},
+	},
 
 	-- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
 	-- URL it will be ignored but you can customize this behavior here.
@@ -210,9 +211,9 @@ nmap_leader("od", function()
 	end
 end, "+getting daily notes")
 nmap_leader(
-  "of",
-  "<cmd>ObsidianFollowLink<cr>",
-  "+followlink: Open note reference under the cursor in a horizontal or vertical split window"
+	"of",
+	"<cmd>ObsidianFollowLink<cr>",
+	"+followlink: Open note reference under the cursor in a horizontal or vertical split window"
 )
 nmap_leader("oF", function()
 	local split = vim.fn.input("Enter split(h/v): ")
