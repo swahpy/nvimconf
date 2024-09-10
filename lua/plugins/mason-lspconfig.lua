@@ -93,9 +93,9 @@ local handlers = {
 						autoImportCompletions = true,
 					},
 				},
-        -- python = {
-        --   pythonPath = vim.fn.exepath("python")
-        -- }
+				-- python = {
+				--   pythonPath = vim.fn.exepath("python")
+				-- }
 			},
 		})
 	end,
@@ -124,6 +124,21 @@ local handlers = {
 	-- 		},
 	-- 	})
 	-- end,
+	["typos_lsp"] = function()
+		lspconfig.typos_lsp.setup({
+			-- Logging level of the language server. Logs appear in :LspLog. Defaults to error.
+			cmd_env = { RUST_LOG = "error" },
+			init_options = {
+				-- Custom config. Used together with a config file found in the workspace or its parents,
+				-- taking precedence for settings declared in both.
+				-- Equivalent to the typos `--config` cli argument.
+				config = "~/.config/typos.toml",
+				-- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
+				-- Defaults to error.
+				diagnosticSeverity = "Error",
+			},
+		})
+	end,
 }
 --> setup mason-lspconfig
 local mlc = require("mason-lspconfig")
@@ -137,10 +152,10 @@ mlc.setup({
 		"jsonls",
 		"lua_ls",
 		"markdown_oxide",
-		-- "pyright",
 		"basedpyright",
 		-- "ruff",
 		"yamlls",
+		"typos_lsp",
 	},
 	handlers = handlers,
 })
