@@ -91,6 +91,14 @@ local handlers = {
 					disableOrganizeImports = true,
 					analysis = {
 						autoImportCompletions = true,
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+            diagnosticsMode = "openFilesOnly", -- workspace, openFilesOnly
+            typeCheckingMode = "standard", -- off, basic, standard, strict, all
+            diagnosticSeverityOverrides = {
+              reportUnknownMemberType = false,
+              reportUnknownArgumentType = false,
+            }
 					},
 				},
 				-- python = {
