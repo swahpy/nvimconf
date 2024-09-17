@@ -98,12 +98,13 @@ local handlers = {
             diagnosticSeverityOverrides = {
               reportUnknownMemberType = false,
               reportUnknownArgumentType = false,
-            }
+              reportUnusedVariable = false, -- ruff handles this with F841
+            },
 					},
 				},
-				-- python = {
-				--   pythonPath = vim.fn.exepath("python")
-				-- }
+        python = {
+          pythonPath = "./venv/bin/python"
+        }
 			},
 		})
 	end,
