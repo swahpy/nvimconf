@@ -958,61 +958,7 @@ later(function()
 			"nvim-treesitter/nvim-treesitter",
 		},
 	})
-	require("markview").setup({
-		modes = { "n", "i", "no", "c" },
-		hybrid_modes = { "i" },
-
-		callbacks = {
-			on_enable = function(_, win)
-				vim.wo[win].conceallevel = 2
-				vim.wo[win].concealcursor = "nc"
-			end,
-		},
-
-		checkboxes = {
-			checked = {
-				text = "",
-				hl = "Green",
-			},
-			unchecked = {
-				text = "",
-			},
-		},
-		headings = {
-			heading_1 = {
-				style = "icon",
-				hl = "Red",
-			},
-			heading_2 = {
-				style = "icon",
-				hl = "Orange",
-			},
-			heading_3 = {
-				style = "icon",
-				hl = "Yellow",
-			},
-			heading_4 = {
-				style = "icon",
-				hl = "Green",
-			},
-			heading_5 = {
-				style = "icon",
-				hl = "Blue",
-			},
-			heading_6 = {
-				style = "icon",
-				hl = "Aqua",
-			},
-		},
-		links = {
-			hyperlinks = {
-				custom = {
-					{ hl = "Blue", match = "[https:|http:]", icon = " ", corner_right = " " },
-					{ hl = "Aqua", match = "%.md", icon = "󱅷 " },
-				},
-			},
-		},
-	})
+  require("plugins/markview")
 end)
 
 -- ╔══════════════════════════════════╗
