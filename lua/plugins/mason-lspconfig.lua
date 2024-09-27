@@ -6,13 +6,6 @@ for type, icon in pairs(signs) do
 end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
--- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
--- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
-capabilities.workspace = {
-	didChangeWatchedFiles = {
-		dynamicRegistration = true,
-	},
-}
 local lspconfig = require("lspconfig")
 local handlers = {
 	-- default handler for installed servers
@@ -24,12 +17,31 @@ local handlers = {
 	--> setup for markdown_oxide
 	["markdown_oxide"] = function()
 		lspconfig.markdown_oxide.setup({
-			capabilities = capabilities,
+			capabilities = vim.tbl_deep_extend("force", capabilities, {
+				workspace = {
+					didChangeWatchedFiles = {
+						dynamicRegistration = true,
+					},
+				},
+			}),
 			on_attach = function(client, bufnr)
-				-- refresh codelens on TextChanged and InsertLeave as well
-				vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach" }, {
+				local function check_codelens_support()
+					local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+					for _, c in ipairs(clients) do
+						if c.server_capabilities.codeLensProvider then
+							return true
+						end
+					end
+					return false
+				end
+
+				vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach", "BufEnter" }, {
 					buffer = bufnr,
-					callback = vim.lsp.codelens.refresh,
+					callback = function()
+						if check_codelens_support() then
+							vim.lsp.codelens.refresh({ bufnr = 0 })
+						end
+					end,
 				})
 				-- trigger codelens refresh
 				vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
@@ -91,20 +103,20 @@ local handlers = {
 					disableOrganizeImports = true,
 					analysis = {
 						autoImportCompletions = true,
-            autoSearchPaths = true,
-            useLibraryCodeForTypes = true,
-            diagnosticsMode = "openFilesOnly", -- workspace, openFilesOnly
-            typeCheckingMode = "standard", -- off, basic, standard, strict, all
-            diagnosticSeverityOverrides = {
-              reportUnknownMemberType = false,
-              reportUnknownArgumentType = false,
-              reportUnusedVariable = false, -- ruff handles this with F841
-            },
+						autoSearchPaths = true,
+						useLibraryCodeForTypes = true,
+						diagnosticsMode = "openFilesOnly", -- workspace, openFilesOnly
+						typeCheckingMode = "standard", -- off, basic, standard, strict, all
+						diagnosticSeverityOverrides = {
+							reportUnknownMemberType = false,
+							reportUnknownArgumentType = false,
+							reportUnusedVariable = false, -- ruff handles this with F841
+						},
 					},
 				},
-        python = {
-          pythonPath = "./venv/bin/python"
-        }
+				python = {
+					pythonPath = "./venv/bin/python",
+				},
 			},
 		})
 	end,
