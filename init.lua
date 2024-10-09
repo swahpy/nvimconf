@@ -959,6 +959,51 @@ later(function()
 		},
 	})
 	require("plugins/markview")
+	--------------
+	-- blink.cmp--
+	--------------
+	-- add({
+	-- 	source = "saghen/blink.cmp",
+	-- 	depends = {
+	-- 		"rafamadriz/friendly-snippets",
+	-- 	},
+	-- 	checkout = "main",
+	-- 	-- hooks = {
+	-- 	-- 	post_checkout = function()
+	-- 	-- 		vim.fn.system("cargo build --release")
+	-- 	-- 	end,
+	-- 	-- },
+	-- })
+	-- require("blink.cmp").setup({
+	-- 	keymap = {
+	-- 		show = "<C-c>",
+	-- 		hide = "<C-e>",
+	-- 		accept = "<Enter>",
+	-- 		select_prev = { "<Up>", "<A-k>" },
+	-- 		select_next = { "<Down>", "<A-j>" },
+	--
+	-- 		scroll_documentation_up = "<A-b>",
+	-- 		scroll_documentation_down = "<A-f>",
+	--
+	-- 		snippet_forward = "<Tab>",
+	-- 		snippet_backward = "<S-Tab>",
+	-- 	},
+	-- 	highlight = {
+	-- 		-- sets the fallback highlight groups to nvim-cmp's highlight groups
+	-- 		-- useful for when your theme doesn't support blink.cmp
+	-- 		-- will be removed in a future release, assuming themes add support
+	-- 		use_nvim_cmp_as_default = true,
+	-- 	},
+	-- 	-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+	-- 	-- adjusts spacing to ensure icons are aligned
+	-- 	nerd_font_variant = "normal",
+	--
+	-- 	-- experimental auto-brackets support
+	-- 	accept = { auto_brackets = { enabled = true } },
+	--
+	-- 	-- experimental signature help support
+	-- 	trigger = { signature_help = { enabled = true } },
+	-- })
 end)
 
 -- ╔══════════════════════════════════╗
