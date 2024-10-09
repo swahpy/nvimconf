@@ -111,6 +111,8 @@ local handlers = {
 							reportUnknownMemberType = false,
 							reportUnknownArgumentType = false,
 							reportUnusedVariable = false, -- ruff handles this with F841
+							reportUnusedImport = false, -- ruff handles this with F401
+							reportAttributeAccessIssue = false,
 						},
 					},
 				},
