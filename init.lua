@@ -464,6 +464,7 @@ later(function()
 	hipatterns.setup({
 		highlighters = { -- %f[%w]()TODO()%f[%W]
 			todo = hi_words({ "TODO", "Todo", "todo" }, "MiniHipatternsFixme"),
+			-- invalid = hi_words({ "Invalid", "invalid" }, "MiniHipatternsFixme"),
 			done = hi_words({ "DONE", "Done", "done" }, "MiniHipatternsTodo"),
 			note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsHack"),
 			doing = hi_words({ "DOING", "Doing", "doing" }, "MiniHipatternsNote"),
@@ -953,12 +954,11 @@ later(function()
 	add({
 		source = "OXY2DEV/markview.nvim",
 		depends = {
-			-- You may not need this if you don't lazy load
-			-- Or if the parsers are in your $RUNTIMEPATH
+			"nvim-tree/nvim-web-devicons",
 			"nvim-treesitter/nvim-treesitter",
 		},
 	})
-  require("plugins/markview")
+	require("plugins/markview")
 end)
 
 -- ╔══════════════════════════════════╗
