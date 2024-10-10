@@ -962,17 +962,13 @@ later(function()
 	--------------
 	-- blink.cmp--
 	--------------
+	--  local BLINKCMP_VERSION = "v0.2.1"
 	-- add({
 	-- 	source = "saghen/blink.cmp",
 	-- 	depends = {
 	-- 		"rafamadriz/friendly-snippets",
 	-- 	},
-	-- 	checkout = "main",
-	-- 	-- hooks = {
-	-- 	-- 	post_checkout = function()
-	-- 	-- 		vim.fn.system("cargo build --release")
-	-- 	-- 	end,
-	-- 	-- },
+	-- 	checkout = BLINKCMP_VERSION,
 	-- })
 	-- require("blink.cmp").setup({
 	-- 	keymap = {
@@ -980,13 +976,13 @@ later(function()
 	-- 		hide = "<C-e>",
 	-- 		accept = "<Enter>",
 	-- 		select_prev = { "<Up>", "<A-k>" },
-	-- 		select_next = { "<Down>", "<A-j>" },
+	--      select_next = { "<Down>", "<A-j>" },
 	--
 	-- 		scroll_documentation_up = "<A-b>",
 	-- 		scroll_documentation_down = "<A-f>",
 	--
-	-- 		snippet_forward = "<Tab>",
-	-- 		snippet_backward = "<S-Tab>",
+	-- 		snippet_forward = "<C-j>",
+	-- 		snippet_backward = "<C-k>",
 	-- 	},
 	-- 	highlight = {
 	-- 		-- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -994,9 +990,6 @@ later(function()
 	-- 		-- will be removed in a future release, assuming themes add support
 	-- 		use_nvim_cmp_as_default = true,
 	-- 	},
-	-- 	-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-	-- 	-- adjusts spacing to ensure icons are aligned
-	-- 	nerd_font_variant = "normal",
 	--
 	-- 	-- experimental auto-brackets support
 	-- 	accept = { auto_brackets = { enabled = true } },
