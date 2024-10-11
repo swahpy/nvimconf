@@ -42,65 +42,82 @@ require("markview").setup({
 		heading_1 = {
 			style = "label",
 			shift_char = "",
-      hl = "Red",
+			hl = "Red",
 			icon = " ",
-      icon_hl = "Red",
-      sign = "󰌕 ",
-      sign_hl = "Red",
+			icon_hl = "Red",
+			sign = "󰌕 ",
+			sign_hl = "Red",
 		},
 		heading_2 = {
 			style = "label",
 			shift_char = "",
-      hl = "Orange",
+			hl = "Orange",
 			icon = " ",
-      icon_hl = "Orange",
-      sign = "󰌕 ",
-      sign_hl = "Orange",
+			icon_hl = "Orange",
+			sign = "󰌕 ",
+			sign_hl = "Orange",
 		},
 		heading_3 = {
 			style = "label",
 			shift_char = "",
-      hl = "Yellow",
+			hl = "Yellow",
 			icon = " ",
-      icon_hl = "Yellow",
-      sign = "󰌕 ",
-      sign_hl = "Yellow",
+			icon_hl = "Yellow",
+			sign = "󰌕 ",
+			sign_hl = "Yellow",
 		},
 		heading_4 = {
 			style = "label",
 			shift_char = "",
-      hl = "Green",
+			hl = "Green",
 			icon = " ",
-      icon_hl = "Green",
-      sign = "󰌕 ",
-      sign_hl = "Green",
+			icon_hl = "Green",
+			sign = "󰌕 ",
+			sign_hl = "Green",
 		},
 		heading_5 = {
 			style = "label",
 			shift_char = "",
 			hl = "Blue",
 			icon = " ",
-      icon_hl = "Blue",
-      sign = "󰌕 ",
-      sign_hl = "Blue",
+			icon_hl = "Blue",
+			sign = "󰌕 ",
+			sign_hl = "Blue",
 		},
 		heading_6 = {
 			style = "label",
 			shift_char = "",
-      hl = "Aqua",
+			hl = "Aqua",
 			icon = " ",
-      icon_hl = "Aqua",
-      sign = "󰌕 ",
-      sign_hl = "Aqua",
+			icon_hl = "Aqua",
+			sign = "󰌕 ",
+			sign_hl = "Aqua",
 		},
 	},
 	links = {
 		hyperlinks = {
+			__emoji_link_compatability = false,
 			custom = {
 				{ hl = "Blue", match_string = "https:", icon = " ", corner_right = " " },
 				{ hl = "Blue", match_string = "^http:", icon = " ", corner_right = " " },
 				{ hl = "Aqua", match_string = "%.md", icon = "󱅷 " },
 			},
+		},
+		internal_links = {
+			--- When true, link texts that start with an emoji
+			--- won't have an icon in front of them.
+			__emoji_link_compatability = false,
+
+			--- Icon to show.
+			---@type string?
+			icon = "󱅷 ",
+
+			--- Highlight group for the "icon".
+			---@type string?
+			hl = "Aqua",
+
+			--- Configuration for custom internal links
+			custom = {},
 		},
 	},
 	list_items = {
