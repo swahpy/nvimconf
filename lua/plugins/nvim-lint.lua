@@ -23,6 +23,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "TextChanged" }, {
 	end,
 })
 
-vim.keymap.set("n", "<leader><leader>L", function()
+vim.keymap.set("n", "<leader><leader>l", function()
 	lint.try_lint()
 end, { desc = "Trigger linting for current file" })
