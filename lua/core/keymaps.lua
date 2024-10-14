@@ -59,9 +59,6 @@ map({ "i", "x", "n", "s" }, "<A-w>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
 map("v", ">", ">gv", { noremap = true, silent = true, desc = "" })
 
--- Lazy
-nmap_leader("<leader>l", "<cmd>Lazy<cr>", "Open Lazy Pane")
-
 -- -- Move Lines
 -- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 -- map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
