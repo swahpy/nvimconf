@@ -997,6 +997,16 @@ later(function()
 	-- 	-- experimental signature help support
 	-- 	trigger = { signature_help = { enabled = true } },
 	-- })
+	--------------
+	-- nvim ufo --
+	--------------
+	-- add({
+	--   source = "kevinhwang91/nvim-ufo",
+	--   depends = {
+	--     "kevinhwang91/promise-async",
+	--   }
+	-- })
+	-- require("plugins/nvim-ufo")
 end)
 
 -- ╔══════════════════════════════════╗
