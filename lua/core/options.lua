@@ -19,7 +19,7 @@ opt.swapfile = false
 opt.scrolloff = 10
 
 -- used to align text
-opt.colorcolumn = "120"
+opt.colorcolumn = "79"
 
 -- search
 opt.hlsearch = true
