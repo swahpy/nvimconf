@@ -15,7 +15,7 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- turn off swapfile
 opt.swapfile = false
 
--- the minimium lines kept below or above the cursor line
+-- the minimum lines kept below or above the cursor line
 opt.scrolloff = 10
 
 -- used to align text
@@ -27,7 +27,7 @@ opt.hlsearch = true
 -- auto reload file when it is changed outside
 opt.autoread = true
 
-opt.textwidth = 120
+opt.textwidth = 79
 
 -- enable float window and colorscheme work properly
 opt.winblend = 0
