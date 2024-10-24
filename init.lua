@@ -626,10 +626,11 @@ later(function()
 		extra.pickers.git_files()
 	end, "Pick from git files")
 	nmap_leader("fg", function()
-		builtin.grep_live()
+		builtin.grep()
 	end, "Pick from pattern matches with live feedback")
 	nmap_leader("fG", function()
-		builtin.hl_groups()
+		-- builtin.hl_groups()
+		builtin.grep_live()
 	end, "Pick from highlight groups")
 	nmap_leader("fh", function()
 		builtin.help()
@@ -749,7 +750,7 @@ later(function()
 	-- ╚═══════════════════════╝
 	local trail = require("mini.trailspace")
 	trail.setup()
-	nmap_leader("T", function()
+	nmap_leader("tt", function()
 		trail.trim()
 	end, "+trim trailing whitespace")
 	nmap_leader("l", function()
@@ -959,6 +960,43 @@ later(function()
 		},
 	})
 	require("plugins/markview")
+	-----------------
+	-- toggle term --
+	-----------------
+	add({
+		source = "akinsho/toggleterm.nvim",
+		checkout = "*",
+	})
+	require("toggleterm").setup({
+		size = function(term)
+			if term.direction == "horizontal" then
+				return vim.o.lines * 0.5
+			elseif term.direction == "vertical" then
+				return vim.o.columns * 0.5
+			end
+		end,
+		open_mapping = [[<C-\>]],
+		shade_terminals = false,
+	})
+	-- keymaps
+	local trim_spaces = true
+	vim.keymap.set("v", "<space>ts", function()
+		require("toggleterm").send_lines_to_terminal("visual_selection", trim_spaces, { args = vim.v.count })
+	end)
+	vim.keymap.set("n", "<space>tc", function()
+		require("toggleterm").send_lines_to_terminal("single_line", trim_spaces, { args = vim.v.count })
+	end)
+	function _G.set_terminal_keymaps()
+		local opts = { buffer = 0 }
+		vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+		vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+		vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+		vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+		vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+		vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+	end
+	-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+	vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 	--------------
 	-- blink.cmp--
 	--------------
