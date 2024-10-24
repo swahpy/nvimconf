@@ -74,11 +74,11 @@ nmap_leader("bp", "<cmd>b#<cr>", "Goto previous buffer")
 nmap_leader("bf", "<cmd>bfirst<cr>", "Goto first buffer")
 nmap_leader("bl", "<cmd>blast<cr>", "Goto last buffer")
 nmap_leader("bn", "<cmd>bmod<cr>", "Goto next buffer")
-nmap_leader("ba", "<cmd>buffers<cr>", "List all listed-buffers")
+nmap_leader("ba", "<cmd>buffers<cr>", "List all buffers")
 nmap_leader("bg", function()
 	local buf = vim.fn.input("Please enter the buffer number you want to go: \n> ")
 	vim.cmd("buffer " .. buf)
-end, "List all listed-buffers")
+end, "Goto specific buffer using its number")
 
 -- lsp
 -- toggle lsp inlay hints:

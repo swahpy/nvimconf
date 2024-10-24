@@ -306,16 +306,20 @@ later(function()
 			clue.gen_clues.registers(),
 			clue.gen_clues.windows(),
 			clue.gen_clues.z(),
+			-- Add descriptions for mapping groups
 			{ mode = "n", keys = "<Leader>b", desc = "+buffers" },
 			{ mode = "n", keys = "<Leader>c", desc = "+code" },
 			{ mode = "x", keys = "<Leader>c", desc = "+code" },
 			{ mode = "n", keys = "<Leader>f", desc = "+find" },
 			{ mode = "n", keys = "<Leader>m", desc = "+mason" },
+			{ mode = "n", keys = "<Leader>ml", desc = "+lsp" },
+			{ mode = "n", keys = "<Leader>mt", desc = "+tool installer" },
 			{ mode = "n", keys = "<Leader>o", desc = "+obsidian" },
 			{ mode = "x", keys = "<Leader>o", desc = "+obsidian" },
 			{ mode = "n", keys = "<Leader>s", desc = "+session" },
 			{ mode = "n", keys = "<Leader>t", desc = "+toggle" },
 			{ mode = "n", keys = "<Leader>w", desc = "+window" },
+			{ mode = "n", keys = "<Leader>y", desc = "+yanky" },
 		},
 	})
 	-- ╔═══════════════════════╗
@@ -843,7 +847,7 @@ later(function()
 			"--",
 		},
 	}
-	map({ "n", "v" }, "<leader>tf", function()
+	map({ "n", "v" }, "<leader>tF", function()
 		conform.format({ timeout_ms = 500, lsp_fallback = true })
 	end, { desc = "+format buffer using formatter" })
 	o.formatexpr = "v:lua.require'conform'.formatexpr()"
@@ -982,10 +986,13 @@ later(function()
 	local trim_spaces = true
 	vim.keymap.set("v", "<space>ts", function()
 		require("toggleterm").send_lines_to_terminal("visual_selection", trim_spaces, { args = vim.v.count })
-	end)
-	vim.keymap.set("n", "<space>tc", function()
+	end, { desc = "+Send visual selection to terminal" })
+	vim.keymap.set("n", "<space>tl", function()
 		require("toggleterm").send_lines_to_terminal("single_line", trim_spaces, { args = vim.v.count })
-	end)
+	end, { desc = "+Send current line to terminal" })
+	nmap_leader("tv", "<CMD>ToggleTerm direction=vertical<CR>", "+ToggleTerm vertical")
+	nmap_leader("th", "<CMD>ToggleTerm direction=horizontal<CR>", "+ToggleTerm horizontal")
+	nmap_leader("tf", "<CMD>ToggleTerm direction=float<CR>", "+ToggleTerm float")
 	function _G.set_terminal_keymaps()
 		local opts = { buffer = 0 }
 		vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
