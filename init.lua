@@ -847,7 +847,7 @@ later(function()
 			"--",
 		},
 	}
-	map({ "n", "v" }, "<leader>tF", function()
+	map({ "n", "v" }, "<leader>F", function()
 		conform.format({ timeout_ms = 500, lsp_fallback = true })
 	end, { desc = "+format buffer using formatter" })
 	o.formatexpr = "v:lua.require'conform'.formatexpr()"
@@ -990,8 +990,8 @@ later(function()
 	vim.keymap.set("n", "<space>tl", function()
 		require("toggleterm").send_lines_to_terminal("single_line", trim_spaces, { args = vim.v.count })
 	end, { desc = "+Send current line to terminal" })
-	nmap_leader("tv", "<CMD>ToggleTerm direction=vertical<CR>", "+ToggleTerm vertical")
-	nmap_leader("th", "<CMD>ToggleTerm direction=horizontal<CR>", "+ToggleTerm horizontal")
+	nmap_leader("tv", "<CMD>exe v:count1 . 'ToggleTerm direction=vertical'<CR>", "+ToggleTerm vertical")
+	nmap_leader("th", "<CMD>exe v:count1 . 'ToggleTerm direction=horizontal'<CR>", "+ToggleTerm horizontal")
 	nmap_leader("tf", "<CMD>ToggleTerm direction=float<CR>", "+ToggleTerm float")
 	function _G.set_terminal_keymaps()
 		local opts = { buffer = 0 }
