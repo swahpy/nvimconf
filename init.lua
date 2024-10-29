@@ -969,7 +969,7 @@ later(function()
 	-----------------
 	add({
 		source = "akinsho/toggleterm.nvim",
-		checkout = "*",
+		checkout = "main",
 	})
 	require("toggleterm").setup({
 		size = function(term)
