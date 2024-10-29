@@ -953,17 +953,17 @@ later(function()
 	vim.g.undotree_SplitWidth = 35
 	vim.g.undotree_ShortIndicators = 1
 	vim.g.undotree_SetFocusWhenToggle = 1
-	--------------
-	-- markview --
-	--------------
+	---------------------
+	-- render-markdown --
+	---------------------
 	add({
-		source = "OXY2DEV/markview.nvim",
+		source = "MeanderingProgrammer/render-markdown.nvim",
 		depends = {
-			"nvim-tree/nvim-web-devicons",
 			"nvim-treesitter/nvim-treesitter",
+			"echasnovski/mini.nvim",
 		},
 	})
-	require("plugins/markview")
+  require("plugins/rendermarkdown")
 	-----------------
 	-- toggle term --
 	-----------------
