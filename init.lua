@@ -1004,6 +1004,11 @@ later(function()
 	end
 	-- if you only want these mappings for toggle term use term://*toggleterm#* instead
 	vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+	-------------------
+	-- better escape --
+	-------------------
+  add("max397574/better-escape.nvim")
+  require("better_escape").setup()
 	--------------
 	-- blink.cmp--
 	--------------
