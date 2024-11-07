@@ -12,7 +12,7 @@ end
 ---------------------
 
 -- use jk to exit insert mode
-map("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+map("i", "<C-t>", "<ESC>", { desc = "Exit insert mode with Ctrl-t" })
 
 -- execute command in commandline window
 -- map("n", ":", ":<C-f>", { desc = "Open commandline window instead of just commandline" })
@@ -82,10 +82,10 @@ end, "Goto specific buffer using its number")
 
 -- lsp
 -- toggle lsp inlay hints:
-nmap_leader("ti", function ()
-  if vim.lsp.inlay_hint.is_enabled({}) then
-    vim.lsp.inlay_hint.enable(false)
-    return
-  end
-  vim.lsp.inlay_hint.enable(true)
+nmap_leader("ti", function()
+	if vim.lsp.inlay_hint.is_enabled({}) then
+		vim.lsp.inlay_hint.enable(false)
+		return
+	end
+	vim.lsp.inlay_hint.enable(true)
 end, "+toggle lsp inlay hints")
