@@ -122,6 +122,9 @@ local handlers = {
 			},
 		})
 	end,
+	["emmet_language_server"] = function()
+		lspconfig.emmet_language_server.setup({})
+	end,
 	-- refer to https://github.com/astral-sh/ruff-lsp/issues/384
 	-- ["pyright"] = function()
 	-- 	lspconfig.pyright.setup({
@@ -171,6 +174,7 @@ mlc.setup({
 		"bashls",
 		"dockerls",
 		"docker_compose_language_service",
+		"emmet_language_server",
 		"gopls",
 		"jsonls",
 		"lua_ls",
