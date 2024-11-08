@@ -827,9 +827,10 @@ later(function()
 		formatters_by_ft = {
 			bash = { "shellcheck", "shfmt" },
 			go = { "goimports", "gofumpt" },
+			html = { "prettier" },
 			jason = { "jq" },
 			lua = { "stylua" },
-			markdown = { "markdownlint" },
+			markdown = { "prettier" },
 			python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 			yaml = { "yq" },
 		},
@@ -874,13 +875,20 @@ later(function()
 			"gofumpt",
 			"jq",
 			"stylua",
-			"markdownlint",
 			"yq",
 			"codespell",
 			"ruff",
 			"golangci-lint",
 			"shellcheck",
 			"shfmt",
+			-- html formatter
+			"prettier",
+			-- html linter
+			"htmlhint",
+			"markuplint",
+			-- markdown linter
+			-- "vale",
+			"markdownlint",
 		},
 	})
 	nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "+install tools")
@@ -902,8 +910,8 @@ later(function()
 	nmap_leader("yl", function()
 		require("yanky.textobj").last_put()
 	end, "[l]ast put text")
-  nmap_leader("yp", "<Plug>(YankyPreviousEntry)", "+choose previous yank entry")
-  nmap_leader("yn", "<Plug>(YankyNextEntry)", "+choose previous yank entry")
+	nmap_leader("yp", "<Plug>(YankyPreviousEntry)", "+choose previous yank entry")
+	nmap_leader("yn", "<Plug>(YankyNextEntry)", "+choose previous yank entry")
 	nmap("<A-p>", "<Plug>(YankyPreviousEntry)", "Select previous entry through yank history")
 	nmap("<A-n>", "<Plug>(YankyNextEntry)", "Select next entry through yank history")
 	nmap("y", "<Plug>(YankyYank)", "Yank text")
@@ -965,7 +973,7 @@ later(function()
 			"echasnovski/mini.nvim",
 		},
 	})
-  require("plugins/rendermarkdown")
+	require("plugins/rendermarkdown")
 	-----------------
 	-- toggle term --
 	-----------------
@@ -997,7 +1005,7 @@ later(function()
 	nmap_leader("tf", "<CMD>ToggleTerm direction=float<CR>", "+ToggleTerm float")
 	function _G.set_terminal_keymaps()
 		local opts = { buffer = 0 }
-    vim.keymap.set("t", "<C-t>", [[<C-\><C-n>]], opts)
+		vim.keymap.set("t", "<C-t>", [[<C-\><C-n>]], opts)
 		vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
 		vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
 		vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)

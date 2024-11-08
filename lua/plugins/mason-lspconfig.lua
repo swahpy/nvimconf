@@ -123,33 +123,10 @@ local handlers = {
 		})
 	end,
 	["emmet_language_server"] = function()
-		lspconfig.emmet_language_server.setup({})
+		lspconfig.emmet_language_server.setup({
+      capabilities = capabilities,
+    })
 	end,
-	-- refer to https://github.com/astral-sh/ruff-lsp/issues/384
-	-- ["pyright"] = function()
-	-- 	lspconfig.pyright.setup({
-	-- 		capabilities = capabilities,
-	-- 		settings = {
-	-- 			pyright = {
-	-- 				-- Using Ruff's import organizer
-	-- 				disableOrganizeImports = true,
-	-- 			},
-	-- 			python = {
-	-- 				analysis = {
-	-- 					diagnosticSeverityOverrides = {
-	-- 						-- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
-	-- 						-- reportUndefinedVariable = "none",
-	-- 						-- reportAssignmentType = "none",
-	-- 						-- Just put below line here as per official documents, but it doesn't workspace
-	-- 						-- so I used above setup to disable certain diagnostics.
-	-- 						-- Ignore all files for analysis to exclusively use Ruff for linting
-	-- 						-- ignore = { "*" },
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	})
-	-- end,
 	["typos_lsp"] = function()
 		lspconfig.typos_lsp.setup({
 			-- Logging level of the language server. Logs appear in :LspLog. Defaults to error.

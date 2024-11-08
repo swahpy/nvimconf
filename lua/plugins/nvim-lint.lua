@@ -2,6 +2,7 @@ local lint = require("lint")
 
 lint.linters_by_ft = {
 	go = { "golangcilint" },
+	html = { "htmlhint", "markuplint" },
 	markdown = { "markdownlint" },
 	python = { "ruff" },
 }
