@@ -841,13 +841,13 @@ later(function()
 		-- 	timeout_ms = 500,
 		-- },
 	})
-	conform.formatters.markdownlint = {
-		prepend_args = {
-			"--disable",
-			"MD034",
-			"--",
-		},
-	}
+	-- conform.formatters["markdownlint-cli2"] = {
+	-- 	prepend_args = {
+	-- 		"--disable",
+	-- 		"MD034",
+	-- 		"--",
+	-- 	},
+	-- }
 	map({ "n", "v" }, "<leader>F", function()
 		conform.format({ timeout_ms = 500, lsp_fallback = true })
 	end, { desc = "+format buffer using formatter" })
@@ -888,7 +888,7 @@ later(function()
 			"markuplint",
 			-- markdown linter
 			-- "vale",
-			"markdownlint",
+			"markdownlint-cli2",
 		},
 	})
 	nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "+install tools")

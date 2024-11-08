@@ -3,17 +3,14 @@ local lint = require("lint")
 lint.linters_by_ft = {
 	go = { "golangcilint" },
 	html = { "htmlhint", "markuplint" },
-	markdown = { "markdownlint" },
+	markdown = { "markdownlint-cli2" },
 	python = { "ruff" },
 }
 
 --> setup lint rules for markdown_lint
-local mdl = lint.linters.markdownlint
-mdl.args = {
-	"--disable",
-	"MD013",
-	"MD024",
-	"MD034",
+lint.linters["markdownlint-cli2"].args = {
+	"--config",
+	os.getenv("HOME") .. "/.config/.markdownlint.yaml",
 	"--",
 }
 
