@@ -493,6 +493,7 @@ later(function()
 			local ignore_filetypes = {
 				"dashboard",
 				"floaterm",
+				"toggleterm",
 				"help",
 				"lazy",
 				"mason",
